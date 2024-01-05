@@ -3,13 +3,13 @@ import { useClickAwayListener } from "../hooks/useClickAwayListener";
 import classes from "./index.module.css";
 
 interface IProps {
-  isOpen: boolean;
+  open: boolean;
   handleClose: () => void;
   children?: React.ReactNode;
   closeOnClickAway?: boolean;
 }
 
-const Modal = ({ isOpen, handleClose, children, closeOnClickAway }: IProps) => {
+const Dialog = ({ open, handleClose, children, closeOnClickAway }: IProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const closeModal = useCallback(() => {
@@ -19,14 +19,14 @@ const Modal = ({ isOpen, handleClose, children, closeOnClickAway }: IProps) => {
 
   useClickAwayListener(
     dialogRef.current,
-    Boolean(closeOnClickAway && isOpen),
+    Boolean(closeOnClickAway && open),
     closeModal
   );
 
   useEffect(() => {
-    if (isOpen) dialogRef.current?.showModal();
+    if (open) dialogRef.current?.showModal();
     else closeModal();
-  }, [isOpen, closeModal]);
+  }, [open, closeModal]);
 
   return (
     <dialog ref={dialogRef} onClose={closeModal} className={classes.dialog}>
@@ -35,4 +35,4 @@ const Modal = ({ isOpen, handleClose, children, closeOnClickAway }: IProps) => {
   );
 };
 
-export default Modal;
+export default Dialog;

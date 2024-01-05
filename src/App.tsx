@@ -1,14 +1,14 @@
 import "./App.css";
-import Modal from "./lib/Modal/index";
+import Dialog from "./lib/Dialog/index";
 import { useDialogControls } from "./lib/hooks/useDialogControls";
 
 function App() {
-  const { isOpen, openDialog, closeDialog } = useDialogControls();
+  const { open, openDialog, closeDialog } = useDialogControls();
 
   return (
     <main>
       <button onClick={openDialog}>Open</button>
-      <Modal isOpen={isOpen} handleClose={closeDialog}>
+      <Dialog open={open} handleClose={closeDialog} closeOnClickAway>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quasi
           natus quas dolore alias optio tenetur perferendis, cupiditate animi
@@ -16,7 +16,7 @@ function App() {
           Recusandae.
         </p>
         <button onClick={closeDialog}>Close Modal</button>
-      </Modal>
+      </Dialog>
     </main>
   );
 }
