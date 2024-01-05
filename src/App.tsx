@@ -1,6 +1,6 @@
 import "./App.css";
-import Modal from "./Modal";
-import { useDialogControls } from "./hooks/useDialogControls";
+import Modal from "./lib/Modal/index";
+import { useDialogControls } from "./lib/hooks/useDialogControls";
 
 function App() {
   const { isOpen, openDialog, closeDialog } = useDialogControls();

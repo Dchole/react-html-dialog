@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import useClickAwayListener from "../hooks/useClickAwayListener";
+import { useClickAwayListener } from "../hooks/useClickAwayListener";
 import classes from "./index.module.css";
 
 interface IProps {

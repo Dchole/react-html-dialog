@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useClickAwayListener = (
+export const useClickAwayListener = (
   dialogEl: HTMLDialogElement | null,
   enabled: boolean,
   closeModal: (...args: string[]) => void
@@ -25,5 +25,3 @@ const useClickAwayListener = (
 
   return;
 };
-
-export default useClickAwayListener;
