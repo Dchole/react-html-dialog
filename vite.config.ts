@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
+      entry: { index: resolve(__dirname, "lib/index.ts") },
       name: "react-html-dialog"
     },
     rollupOptions: {
