@@ -2,8 +2,9 @@
   "name": "react-html-dialog",
   "private": false,
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "version": "0.0.5",
   "type": "module",
@@ -16,7 +17,7 @@
     "postversion": "git push && git push --tags",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
