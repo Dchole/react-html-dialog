@@ -1,0 +1,13 @@
+.root::backdrop {
+  background-color: #2f4f4f42;
+  backdrop-filter: blur(3px);
+}
+
+.root {
+  border-radius: 1rem;
+  background-color: darkred;
+}
+
+.content {
+  border: none;
+}

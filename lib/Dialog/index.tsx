@@ -1,38 +1,76 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef
+} from "react";
 import { useClickAwayListener } from "../hooks/useClickAwayListener";
-import classes from "./index.module.css";
+import classes from "./styles.module.css";
+import DialogContent from "./DialogContent";
+import { cn } from "../utils";
 
 interface IProps {
   open: boolean;
   handleClose: () => void;
+  className?: string;
+  contentClassName?: string;
   children?: React.ReactNode;
   closeOnClickAway?: boolean;
+  contentRef?: React.RefObject<HTMLDivElement>;
 }
 
-const Dialog = ({ open, handleClose, children, closeOnClickAway }: IProps) => {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+const Dialog = forwardRef<HTMLDialogElement, IProps>(
+  (
+    {
+      open,
+      handleClose,
+      className,
+      children,
+      contentClassName,
+      closeOnClickAway,
+      contentRef
+    },
+    ref
+  ) => {
+    const dialogRef = useRef<HTMLDialogElement>(null);
+    const mergedRef = useMemo(
+      () =>
+        ref ? (ref as React.MutableRefObject<HTMLDialogElement>) : dialogRef,
+      [ref]
+    );
 
-  const closeModal = useCallback(() => {
-    dialogRef.current?.close();
-    handleClose();
-  }, [handleClose]);
+    const closeModal = useCallback(() => {
+      mergedRef.current?.close();
+      handleClose();
+    }, [handleClose, mergedRef]);
 
-  useClickAwayListener(
-    dialogRef.current,
-    Boolean(closeOnClickAway && open),
-    closeModal
-  );
+    useClickAwayListener(
+      mergedRef.current,
+      Boolean(closeOnClickAway && open),
+      closeModal
+    );
 
-  useEffect(() => {
-    if (open) dialogRef.current?.showModal();
-    else closeModal();
-  }, [open, closeModal]);
+    useEffect(() => {
+      if (open) mergedRef.current?.showModal();
+      else closeModal();
+    }, [open, closeModal, mergedRef]);
 
-  return (
-    <dialog ref={dialogRef} onClose={closeModal} className={classes.dialog}>
-      <div className={classes.dialog_content}>{children}</div>
-    </dialog>
-  );
-};
+    return (
+      <dialog
+        ref={mergedRef}
+        onClose={closeModal}
+        className={cn(className, classes.dialog)}
+      >
+        <DialogContent
+          ref={contentRef}
+          className={cn(contentClassName, classes.dialog_content)}
+        >
+          {children}
+        </DialogContent>
+      </dialog>
+    );
+  }
+);
 
 export default Dialog;
