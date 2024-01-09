@@ -79,6 +79,8 @@ Adding styles to the `Dialog` component is as easy as adding styles to the `<dia
 - You can style the `dialog` and the `div` element inside to add styles to the modal
 - All styling solutions are allowed
 
+[See usage example on codesandbox](https://codesandbox.io/p/sandbox/react-html-dialog-k79xpp?file=%2Fsrc%2FApp.tsx%3A14%2C1)
+
 ## Why `react-html-dialog`?
 
 - Utilizes the native HTML `<dialog>` element for lightweight, accessible modals.
@@ -88,7 +90,3 @@ Adding styles to the `Dialog` component is as easy as adding styles to the `<dia
 ## Contributing
 
 We welcome contributions! Feel free to submit bug fixes, suggestions, or feature enhancements through issues and pull requests.
-
-## License
-
-`react-html-dialog` is licensed under the [MIT License](link-to-license-file). Feel free to use, modify, and distribute it as per the terms of the license.
