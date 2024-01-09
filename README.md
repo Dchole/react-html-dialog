@@ -71,6 +71,14 @@ function App() {
 
 It's not required to use the hooks from the package but if you find it helpful, why not.
 
+## Styling
+
+Adding styles to the `Dialog` component is as easy as adding styles to the `<dialog>` element.
+
+- Style the backdrop with `dialog::backdrop` selector
+- You can style the `dialog` and the `div` element inside to add styles to the modal
+- All styling solutions are allowed
+
 ## Why `react-html-dialog`?
 
 - Utilizes the native HTML `<dialog>` element for lightweight, accessible modals.

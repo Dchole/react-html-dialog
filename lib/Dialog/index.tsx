@@ -1,4 +1,5 @@
 import React, {
+  DialogHTMLAttributes,
   forwardRef,
   useCallback,
   useEffect,
@@ -10,10 +11,9 @@ import classes from "./styles.module.css";
 import DialogContent from "./DialogContent";
 import { cn } from "../utils";
 
-interface IProps {
+interface IProps extends DialogHTMLAttributes<HTMLDialogElement> {
   open: boolean;
   handleClose: () => void;
-  className?: string;
   contentClassName?: string;
   children?: React.ReactNode;
   closeOnClickAway?: boolean;
@@ -24,12 +24,13 @@ const Dialog = forwardRef<HTMLDialogElement, IProps>(
   (
     {
       open,
-      handleClose,
-      className,
       children,
+      className,
+      contentRef,
+      handleClose,
       contentClassName,
       closeOnClickAway,
-      contentRef
+      ...props
     },
     ref
   ) => {
@@ -58,6 +59,7 @@ const Dialog = forwardRef<HTMLDialogElement, IProps>(
 
     return (
       <dialog
+        {...props}
         ref={mergedRef}
         onClose={closeModal}
         className={cn(className, classes.dialog)}
