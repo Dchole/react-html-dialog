@@ -1,4 +1,4 @@
-# React HTML-dialog
+# React HTML-dialog - Simplifying Modal Dialogs in React with Native HTML `<dialog>` Element
 
 This library allows you to easily use the HTML `<dialog>` in your react applications.
 Uses are similar to most Modal/Dialog libraries except this uses the native `<dialog>` element.
@@ -80,6 +80,30 @@ Adding styles to the `Dialog` component is as easy as adding styles to the `<dia
 - All styling solutions are allowed
 
 [See usage example on codesandbox](https://codesandbox.io/p/sandbox/react-html-dialog-k79xpp?file=%2Fsrc%2FApp.tsx%3A14%2C1)
+
+## API Documentation
+
+### Props for the `Dialog` Component
+
+| Props              | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `open`             | A boolean indicating whether the dialog is open or closed                   |
+| `ref`              | A forwarded `ref` to the `<dialog>` element                                 |
+| `contentRef`       | A forwarded `ref` to the dialog content (`<div>` element inside the dialog) |
+| `className`        | ClassName for the `<dialog>` element                                        |
+| `contentClassName` | ClassName for the dialog content (`<div>` element inside the dialog)        |
+| `handleClose`      | A callback function to handle closing the dialog                            |
+| `closeOnClickAway` | Prop to close the dialog when clicking outside it                           |
+
+### Available Hooks
+
+#### `useDialogControls`
+
+| Return Values | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| `open`        | A boolean indicating whether the dialog is open or closed |
+| `openDialog`  | A function for setting the `open` boolean to `true`       |
+| `closeDialog` | A function for setting the `open` boolean to `false`      |
 
 ## Why `react-html-dialog`?
 
