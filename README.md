@@ -9,7 +9,11 @@ You can install `react-html-dialog` via npm or yarn:
 
 ```bash
 npm install react-html-dialog
-# or
+```
+
+or
+
+```bash
 yarn add react-html-dialog
 ```
 
