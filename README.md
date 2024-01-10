@@ -1,4 +1,4 @@
-# React HTML-dialog - Simplifying Modal Dialogs in React with Native HTML `<dialog>` Element
+# React HTML-dialog
 
 This library allows you to easily use the HTML `<dialog>` in your react applications.
 Uses are similar to most Modal/Dialog libraries except this uses the native `<dialog>` element.
